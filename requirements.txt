@@ -1,0 +1,5 @@
+kiteconnect==4.0.0
+pandas
+requests
+tqdm
+redis==4.0.2
