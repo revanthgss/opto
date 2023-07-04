@@ -44,15 +44,15 @@ class WebsocketClient:
                     'token': tick['instrument_token'],
                     'symbol': contract_detail['symbol'],
                     'last_price': tick['last_price'],
-                    'change': tick['change'],
+                    # 'change': tick['change'],
                 }
             else:
                 optionData = {
                     'token': tick['instrument_token'],
                     'symbol': contract_detail['symbol'],
                     'last_price': tick['last_price'],
-                    'volume': tick['volume_traded'],
-                    'change': tick['change'],
+                    # 'volume': tick['volume_traded'],
+                    # 'change': tick['change'],
                 }
 
             # Store each tick to redis with symbol and token as key pair

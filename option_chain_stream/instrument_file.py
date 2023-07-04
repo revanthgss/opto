@@ -94,11 +94,12 @@ class InstrumentMaster:
         for strike_detail in optionData:
             # For underlying request fetch both EQ and option contracts
             if underlying:
-                if strike_detail['expiry'] == str(expiry) or strike_detail['type'] == 'EQ':
+                if (strike_detail['expiry'] == str(expiry) and strike_detail['strike'] == 45200) or strike_detail['type'] == 'EQ':
                     token_list.append(strike_detail['token'])
             else:
                 # Only fetch opt contracts
                 if strike_detail['expiry'] == str(expiry):
+                    print(strike_detail)
                     token_list.append(strike_detail['token'])
         return token_list
 

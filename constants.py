@@ -3,17 +3,17 @@ from datetime import time, datetime
 API_KEY = "dssjo6h86cvvi68m"
 API_SECRET = "fofn2rkph7wi9gl3un0xy8xf4if20s2s"
 
-STOP_LOSS = 40
+STOP_LOSS = 20
 STOP_LOSS_TRAILING_TRIGGER = 10
 TARGET = 50
-ADD_TARGETS = False
+ADD_TARGETS = True
 MINIMUM_QUANTITY = 25
-LOTS = 3
+LOTS = 1
 
 INSTRUMENT_SYMBOL = 'BANKNIFTY'
 INSTRUMENT_SYMBOL_NAME = 'NIFTY BANK'
 
 DRY_RUN = False
 
-ENTRY_TIME = time(9, 29, 30)
-EXIT_TIME = time(14, 59, 30)
+ENTRY_TIME = time(9, 29, 59)
+EXIT_TIME = time(14, 59, 59)

@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 
 def get_next_expiry():
-    today = datetime.now() + timedelta(days=3)
+    today = datetime.now()
     days_to_next_thursday = (3 - today.weekday()) % 7
     next_thursday = today + timedelta(days=days_to_next_thursday)
     return next_thursday

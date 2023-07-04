@@ -128,7 +128,7 @@ class StraddleStrategy:
         current_call_option_premium = self.get_current_price(self._option_orders["CE"].tradingsymbol, option_chain)
         current_put_option_premium = self.get_current_price(self._option_orders["PE"].tradingsymbol, option_chain)
         print(
-            f"{current_put_option_premium}-{self._stop_losses['PE']}-{current_call_option_premium}-{self._stop_losses['CE']}"
+            f"Profit : {round(MINIMUM_QUANTITY*self.n_lots*(self._option_orders['PE'].average_price+self._option_orders['CE'].average_price-current_put_option_premium-current_call_option_premium),2)}"
         )
         if self._stop_loss_orders["PE"] and self._stop_loss_orders["PE"].get_status() == 'COMPLETE':
             logging.info("Stop loss hit for PUT")
@@ -147,6 +147,7 @@ class StraddleStrategy:
         # Ideally this should occur only once at the start of the day
         underlying_stock_price = self.get_current_price(INSTRUMENT_SYMBOL_NAME, option_chain)
         nearest_call_option, nearest_put_option = self.find_nearest_options(underlying_stock_price, option_chain)
+        print('Underlying -- ', nearest_call_option, nearest_put_option)
         self._option_orders["CE"] = Option(self.kite_instance, nearest_call_option["symbol"]).sell(
             n_lots * MINIMUM_QUANTITY
         )
